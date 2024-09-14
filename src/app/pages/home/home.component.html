@@ -1,0 +1,128 @@
+<section class="homeContainer">
+  <div class="Home">
+ 
+    <div class="left">
+      <div class="left-top">
+        <a href="https://www.sangeethasdesimane.com/" class="logoLink" target="_blank">
+        <img src="svg/logo.svg" alt="">
+      </a>
+      </div>
+      <div class="left-bottom">
+        <img (click)="onClick('slider')" class="leaf-img" src="svg/leaf.svg" alt="">
+      </div>
+    </div>
+   
+    <div class="right">
+      <div class="right-top">
+        <img  src="svg/happy_onam.svg" alt="">
+      </div>
+      <div class="right-bottom">
+        <img (click)="onClick('mahabali')" class="mahabali-img" src="svg/mahabaliWithBoat.svg" alt="">        
+      </div>
+    </div>
+ 
+    <!-- <div nz-row>
+      <div nz-col nzSpan="12" class="logo-desc">
+        <img src="svg/logo.svg" alt="">
+      </div>
+      <div nz-col nzSpan="12" class="happy-onam">
+        <img src="svg/happy_onam.svg" alt="">
+      </div>
+      <div nz-col nzSpan="12" class="leaf">
+        <img (click)="onClick('slider')" class="leaf-img" src="svg/leaf.svg" alt="">
+      </div>
+      <div nz-col nzSpan="12" class="mahabali">
+        <img
+          (click)="onClick('mahabali')"
+          class="mahabali-img"
+          src="svg/mahabaliWithBoat.svg"
+          alt="Mahabali"
+        />
+      </div>
+    </div> -->
+    <!-- <div class="leaf">
+      <div class="leaf-container">
+        <img
+          (click)="onClick('slider')"
+          class="leaf-img"
+          src="svg/leaf.svg"
+          alt="Food"
+        />
+      </div>
+    </div>
+    <div class="mahabali">
+      <div class="mahabali-container">
+      </div>
+    </div> -->
+  </div>
+</section>
+ 
+<div #myModal class="modal-container">
+  <div class="content">
+    <div class="menuContainer">
+      <nz-carousel *ngIf="toggle" [nzEffect]="effect" #carousel>
+        @for (item of onam; track item) {
+        <div nz-carousel-content>
+          <div class="carouselParent">
+            <div class="carouselContainer">
+              <img class="carouselImg" [attr.src]="item['img']" alt="" />
+            </div>
+            <div class="title-Card">{{item['title']}}</div>
+            <div class="contentText">
+              <p>{{item['content']}}</p>
+            </div>
+          </div>
+        </div>
+        }
+      </nz-carousel>
+      <video *ngIf="!toggle" class="video" #video controls>
+        <source src="history_of_onam.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="close">
+      <div class="gesterbutton">
+        <button class="sliderbtn" *ngIf="toggle" nz-button nzType="primary" (click)="prev()">
+          <img src="arrow_left.png" alt="">
+        </button>
+        <button class="sliderbtn" *ngIf="toggle" nz-button nzType="primary" (click)="next()">
+          <img src="arrow_right.png" alt="">
+        </button>
+      </div>
+    </div>
+    <div class="times">
+        <img (click)="close()" src="times.png" alt="">
+    </div>
+    <div *ngIf="toggle" class="chef">
+        <img (click)="redirect()" src="chief_icon_1.png" alt="">
+    </div>
+  </div>
+</div>
+ 
+<!-- <nz-modal
+  [(nzVisible)]="isSlider"
+  nzTitle="Menu"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  nzWidth="80%"
+  [nzMaskClosable]="false"
+>
+  <ng-container *nzModalContent>
+    <div *ngIf="toggle">
+      <nz-carousel [nzEffect]="effect" #carousel>
+        @for (item of onam; track item) {
+        <div nz-carousel-content>
+          <div class="carouselContainer">
+            <img [attr.src]="item['img']" alt="" />
+          </div>
+        </div>
+        }
+      </nz-carousel>
+    </div>
+    <div *ngIf="!toggle">video</div>
+  </ng-container>
+  <div *nzModalFooter>
+    <button nz-button nzType="primary" (click)="prev()">Previous</button>
+    <button nz-button nzType="primary" (click)="next()">Next</button>
+    <button nz-button nzType="primary" (click)="handleCancel()">Exit</button>
+  </div>
+</nz-modal> -->

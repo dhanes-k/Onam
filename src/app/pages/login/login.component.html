@@ -1,0 +1,85 @@
+<section class="loginContainer" >
+  <div class="card" >
+    <form class="loginCardContainer" [formGroup]="myForm"  >
+      <div class="logincard">
+        <div class="title">
+          <a href="https://www.rudrareality.in/" target="_blank"><img src="/svg/login.svg" alt="" /></a>
+        </div>
+        <div class="formSection">
+          <div class="form-group">
+            <label for="name" class="label"
+              >Name <span class="danger">*</span></label
+            >
+            <br />
+            <input
+              class="inputStyle"
+              type="text"
+              placeholder="Enter your name"
+              name=""
+              id=""
+              formControlName="username"   (input)="validateNameInput($event)"
+            />
+            <div *ngIf="submitted">
+              <p *ngIf="name.hasError('required')" class="danger">
+                Name is required
+              </p>
+              <p *ngIf="name.hasError('minlength')" class="danger">
+                Name must be at least 4 characters long.
+              </p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="name" class="label" 
+              >Mobile No <span class="danger">*</span></label
+            >
+            <br />
+            <input
+              class="inputStyle"
+              type="text"
+              placeholder="Enter your number"
+              name=""
+              id=""
+              formControlName="mobile_number"  (input)="validateNumberInput($event)"
+            />
+            <div *ngIf="submitted">
+              <p *ngIf="mobile.hasError('required')" class="danger">
+                Mobile number is required.
+              </p>
+              <p *ngIf="mobile.hasError('pattern')" class="danger">
+                Enter a valid mobile number.
+              </p>
+            </div>
+          </div>
+          <div class="form-group btn">
+            <button class="btn-primary" (click)="onSubmit()">Enter Menu</button>
+          </div>
+        </div>
+        <div class="quotes" >
+          <div class="check">
+            <div class="check-box">
+              <input
+                type="checkbox"
+                formControlName="user_type"
+                name=""
+                id=""
+              />
+            </div>
+            <div>I choose to be anonymous</div>
+          </div>
+          <div class="quotes-content" >
+            "May the blessings of Onam bring you peace and prosperity throughout
+            the year."
+          </div>
+          <div class="poweredBy">
+            Powered by <a href="https://www.rudrareality.in/" target="_blank">Rudra Reality</a>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="mahabali">
+      <div class="mahabaliContainer">
+        <img class="mahabali-img" src="/svg/mahabali.svg" alt="" />
+      </div>
+    </div>
+  </div>
+</section>

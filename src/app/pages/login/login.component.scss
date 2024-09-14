@@ -1,0 +1,380 @@
+@mixin transparent {
+    background: rgba(255, 255, 255, 0.21);
+    box-shadow: 0 4px 10px rgba(192, 114, 114, 0.3);
+    backdrop-filter: blur(3.8px);
+    -webkit-backdrop-filter: blur(3.8px);
+}
+
+@mixin customFlex($justify: center, $align: center, $direction: row) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+
+.loginContainer {
+    width: 100%;
+    height: 100vh;
+    background-color: #FFD1B0;
+    background-image: url(../../../../public/svg/lap_bg.svg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    overflow: hidden;
+    @include customFlex();
+
+    .card {
+        width: 80%;
+        height: 760px;
+        display: flex;
+        flex-wrap: nowrap;
+        border-radius: 24px;
+        position: relative;
+        @include transparent;
+
+        .loginCardContainer {
+            width: 50%;
+            @include customFlex();
+
+            .logincard {
+                width: 80%;
+                height: 676px;
+                border-radius: 24px;
+                @include customFlex(space-between, center, column);
+                @include transparent;
+                padding: 50px 0 20px 0;
+
+                .title {
+                    @include customFlex();
+                    width: 50%;
+                    height: 80px;
+                    // background-color: lightcoral;
+                }
+
+                .formSection {
+                    width: 70%;
+                    height: 100%;
+                    margin: 30px 0 15px 0;
+                    // padding: 30px 0;
+                    // background-color: lightgrey;
+                    @include customFlex(space-between, center, column);
+
+                    .form-group {
+                        width: 100%;
+                        // background-color: gray;
+                        padding: 10px 0;
+
+                        .label {
+                            font-size: 20px
+                        }
+
+                        input {
+                            border: none;
+                            background-color: #FFFFFF;
+                            height: 44px;
+                            width: 100%;
+                            margin: 10px 0;
+                            padding: 0 20px;
+                            font-size: 16px;
+                            border-radius: 6px;
+
+                            &:focus {
+                                border-color: transparent;
+                                outline: transparent
+                            }
+                        }
+                    }
+
+                    .btn {
+
+                        // background-color: lightblue;
+                        &-primary {
+                            width: 100%;
+                            height: 44px;
+                            border: none;
+                            border-radius: 6px;
+                            background-color: #F25019;
+                            color: #FFFFFF;
+                            font-size: 18px;
+                            transition: .2s ease;
+
+                            &:hover {
+                                box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+                                transform: scale(1.1)
+                            }
+                        }
+                    }
+                }
+
+                .quotes {
+                    @include customFlex(flex-start, center, column);
+                    width: 80%;
+                    height: 140px;
+                    .check{
+                        display: flex;
+                        .check-box{
+                            margin: 0 10px;
+                        }
+                    }
+                    // background-color: lightblue;
+                    &-content,
+                    .poweredBy {
+                        text-align: center;
+                        color: #812F13;
+                        a{
+                            color: #812F13;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+
+        .mahabali {
+            width: 50%;
+            height: 100%;
+            // background-color: lightblue;
+
+            .mahabaliContainer {
+                // position: absolute;
+                // right: -10%;
+                // bottom: -10%;
+                width: 100%;
+                height: 100%;
+                @include customFlex(center, flex-end);
+                // background-color: lightcoral;
+            }
+
+        }
+    }
+}
+.mahabali-img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    transform: scale(0.9);
+    transition: .6s ease;
+}
+
+.card:hover .mahabali-img{
+    transform: scale(1.1);
+}
+
+.danger {
+    color: #812F13;
+    margin: 0 !important;
+}
+
+@media only screen and (max-width: 1200px) {
+    .loginContainer {
+        background-image: url(../../../../public/svg/tab_bg.svg);
+        .card {
+            flex-direction: column-reverse;
+            height: 75vh;
+
+            .mahabali {
+                width: 100%;
+                height: 40%;
+                // background-color: #F25019;
+            }
+
+            .loginCardContainer {
+                width: 100%;
+                // height: 60%;
+                // background-color: #b4957f;
+
+                .logincard {
+                    width: 60%;
+                    height: 500px;
+                    padding: 20px;
+                }
+
+                .title {
+                    @include customFlex();
+                    width: 30% !important;
+                    height: 40px !important;
+
+                    // background-color: lightcoral;
+                    img {
+                        width: 100%;
+                        object-fit: fill;
+                    }
+                }
+
+                .formSection {
+                    width: 80% !important;
+                    height: 100%;
+                    margin: 0 0 !important;
+                    // padding: 30px 0;
+                    // background-color: lightgrey;
+                    @include customFlex(space-between, center, column);
+
+                    .form-group {
+                        width: 100%;
+                        // background-color: gray;
+                        padding: 2px 0 !important;
+
+                        .label {
+                            font-size: 20px
+                        }
+
+                        input {
+                            border: none;
+                            background-color: #FFFFFF;
+                            height: 44px;
+                            width: 100%;
+                            margin: 10px 0;
+                            padding: 0 20px;
+                            font-size: 16px;
+                            border-radius: 6px;
+
+                            &:focus {
+                                border-color: transparent;
+                                outline: transparent
+                            }
+                        }
+                    }
+
+                    .btn {
+
+                        // background-color: lightblue;
+                        &-primary {
+                            width: 100%;
+                            height: 44px;
+                            border: none;
+                            border-radius: 6px;
+                            background-color: #F25019;
+                            color: #FFFFFF;
+                            font-size: 18px;
+                            transition: .2s ease;
+
+                            &:hover {
+                                box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+                                transform: scale(1.1)
+                            }
+                        }
+                    }
+                }
+
+                .quotes {
+                    @include customFlex(space-between, center, column);
+                    width: 80%;
+                    height: 200px;
+
+                    // background-color: lightblue;
+                    &-content,
+                    .poweredBy {
+                        text-align: center;
+                        color: #812F13;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .loginContainer {
+        background-image: url(../../../../public/svg/mobile_bg.svg);
+
+        .card {
+            width: 100%;
+            height: 100vh;
+            .mahabali {
+                width: 100%;
+                height: 30%;
+                // background-color: #F25019;
+            }
+
+            .loginCardContainer {
+                width: 100%;
+                height: 70%;
+                border-radius: 0;
+                @include customFlex(center,flex-start, );
+                .logincard {
+                    width: 100% !important;
+                    height: auto;
+                    padding: 20px;
+                }
+                .title {
+                    @include customFlex();
+                    width: 30% !important;
+                    height: 40px !important;
+
+                    // background-color: lightcoral;
+                    img {
+                        width: 100%;
+                        object-fit: fill;
+                    }
+                }
+
+                .formSection {
+                    width: 90% !important;
+                    height: 100%;
+                    margin: 8px 0 !important;
+                    // padding: 30px 0;
+                    // background-color: lightgrey;
+                    @include customFlex(space-between, center, column);
+
+                    .form-group {
+                        width: 100%;
+                        // background-color: gray;
+                        padding: 6px 0;
+
+                        .label {
+                            font-size: 20px
+                        }
+
+                        input {
+                            border: none;
+                            background-color: #FFFFFF;
+                            height: 44px;
+                            width: 100%;
+                            margin: 10px 0;
+                            padding: 0 20px;
+                            font-size: 16px;
+                            border-radius: 6px;
+
+                            &:focus {
+                                border-color: transparent;
+                                outline: transparent
+                            }
+                        }
+                    }
+
+                    .btn {
+
+                        // background-color: lightblue;
+                        &-primary {
+                            width: 100%;
+                            height: 44px;
+                            border: none;
+                            border-radius: 6px;
+                            background-color: #F25019;
+                            color: #FFFFFF;
+                            font-size: 18px;
+                            transition: .2s ease;
+
+                            &:hover {
+                                box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+                                transform: scale(1.1)
+                            }
+                        }
+                    }
+                }
+
+                .quotes {
+                    @include customFlex(space-between, center, column);
+                    width: 80%;
+                    height: 200px;
+                    // background-color: lightblue;
+                    &-content,
+                    .poweredBy {
+                        text-align: center;
+                        color: #812F13;
+                    }
+                }
+            }
+        }
+    }
+}
